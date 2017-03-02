@@ -86,6 +86,12 @@
 									<p><span><%= @gig.description %></p>
 								</div>
 								<div class="responsibilities">
+									<h1>Skills:</h1>
+									<% @gig.skills.each do |skill| %>
+										<li><%= skill.name %></li>
+									<% end %>
+								</div>
+								<div class="responsibilities">
 									<h1>Key Responsibilities:</h1>
 									<p>-Execute all visual design stages of website design from concept to final hand-off to development-Create print advertisements, social media advertisements, client collateral & digital resizes according to Client demands With direction of the Creative team, input into new design ideas for client branding-Update & keep all agency collateral materials, including keeping records of Client's logos, fonts, images, etc.  </p>
 								</div>

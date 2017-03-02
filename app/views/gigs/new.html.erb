@@ -29,7 +29,13 @@
 										</div>
 									</div>
                   <div class="row form-group">
-                    <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
+										<label class="col-sm-3 label-title">Category<span class="required">*</span></label>
+										<div class="col-sm-9">
+											<%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, :class => 'form-control' %>
+										</div>
+									</div>
+									<div class="row form-group">
+										<label class="col-sm-3 label-title">Location<span class="required">*</span></label>
 										<div class="col-sm-9">
 											<%= f.text_field :location, :class => 'form-control', placeholder: "ex, (Denver, San Francisco)" %>
 										</div>
@@ -39,7 +45,13 @@
 										<div class="col-sm-9">
                       <%= f.text_area :description, :class => 'form-control', placeholder: "Write few lines about your jobs", rows: "8" %>
 										</div>
-									</div><br />
+									</div>
+									<div class="row form-group item-description">
+										<label class="col-sm-3 label-title">List of Skills required for the gig<span class="required">*</span></label>
+										<div class="col-sm-9">
+                      <%= f.text_area :skill_list, :class => 'form-control', placeholder: "Separate skills with a coma", rows: "3" %>
+										</div>
+									</div> <br>
                   <%= f.submit "Post Your Gig", :class => "btn btn-primary" %>
               </div>
             </fieldset>

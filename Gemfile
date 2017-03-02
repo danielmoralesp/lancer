@@ -30,6 +30,8 @@ gem 'devise', '~> 3.4.0'
 gem 'faker', group: :development
 #paginador
 gem 'kaminari'
+#geocoder
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
   def index
-    @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(25)
+    @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def new
@@ -18,7 +18,7 @@ class GigsController < ApplicationController
   end
 
   def search
-    @gigs = Gig.search(params).page(params[:page]).per(25)
+    @gigs = Gig.search(params).page(params[:page]).per(10)
   end
 
   private

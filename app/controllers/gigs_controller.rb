@@ -1,6 +1,7 @@
 class GigsController < ApplicationController
   def index
     @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(10)
+    @users = User.all
   end
 
   def new
@@ -36,7 +37,11 @@ class GigsController < ApplicationController
   end
 
   def search
-    @gigs = Gig.search(params).page(params[:page]).per(10)
+    if params[:category].blank? && params[:search].blank?
+      @gigs = Gig.all.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @gigs = Gig.search(params).page(params[:page]).per(10)
+    end
   end
 
   def mygigs

@@ -1,0 +1,82 @@
+<section class=" job-bg ad-details-page">
+  <div class="container">
+    <div class="breadcrumb-section">
+      <!-- breadcrumb -->
+      <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li>Job Post </li>
+      </ol><!-- breadcrumb -->
+      <h2 class="title">Post Your Job</h2>
+    </div><!-- banner -->
+
+    <div class="job-postdetails">
+      <div class="row">
+        <div class="col-md-8">
+        <%= form_for @gig do |f| %>
+          <fieldset>
+            <div class="section postdetails">
+              <h4>Post Your Gig<span class="pull-right">* Mandatory Fields</span></h4>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Name of Your Gig<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :name, :class => 'form-control', placeholder: "ex, Jhon Doe" %>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Budget<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :budget, :class => 'form-control', placeholder: "ex, $1.000" %>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Category<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, :class => 'form-control' %>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :location, :class => 'form-control', placeholder: "ex, (Denver, San Francisco)" %>
+                  </div>
+                </div>
+                <div class="row form-group item-description">
+                  <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_area :description, :class => 'form-control', placeholder: "Write few lines about your jobs", rows: "8" %>
+                  </div>
+                </div>
+                <div class="row form-group item-description">
+                  <label class="col-sm-3 label-title">List of Skills required for the gig<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_area :skill_list, :class => 'form-control', placeholder: "Separate skills with a coma", rows: "3" %>
+                  </div>
+                </div> <br>
+                <%= f.submit "Post Your Gig", :class => "btn btn-primary" %>
+            </div>
+          </fieldset>
+        <% end %>
+        </div>
+        <!-- quick-rules -->
+        <div class="col-md-4">
+          <div class="section quick-rules">
+            <h4>Quick rules</h4>
+            <p class="lead">Posting an ad on <a href="#">jobs.com</a> is free! However, all ads must follow our rules:</p>
+
+            <ul>
+              <li>Make sure you post in the correct category.</li>
+              <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>
+              <li>Do not upload pictures with watermarks.</li>
+              <li>Do not post ads containing multiple items unless it's a package deal.</li>
+              <li>Do not put your email or phone numbers in the title or description.</li>
+              <li>Make sure you post in the correct category.</li>
+              <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>
+              <li>Do not upload pictures with watermarks.</li>
+              <li>Do not post ads containing multiple items unless it's a package deal.</li>
+            </ul>
+          </div>
+        </div><!-- quick-rules -->
+      </div><!-- photos-ad -->
+    </div>
+  </div><!-- container -->
+</section><!-- main -->

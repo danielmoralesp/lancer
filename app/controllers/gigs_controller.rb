@@ -19,10 +19,20 @@ class GigsController < ApplicationController
     @awarded_proposal = Proposal.where(id: @gig.awarded_proposal).first
   end
 
+  def edit
+    @gig = Gig.find(params[:id])
+  end
+
   def update
     @gig = Gig.find(params[:id])
     @gig.update(gig_params)
     redirect_to @gig
+  end
+
+  def destroy
+    @gig = Gig.find(params[:id])
+    @gig.destroy
+    redirect_to mygigs_path
   end
 
   def search

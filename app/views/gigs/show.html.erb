@@ -110,26 +110,36 @@
 								</div>
 							</div>
 
-							<%= form_for :proposal, url: gig_proposals_path(@gig) do |f| %>
-								<fieldset class="post-resume">
-									<div class="section express-yourself">
-										<h4>Send Proposal</h4>
-										<div class="row form-group">
-											<label class="col-sm-4 label-title">Bid</label>
-											<div class="col-sm-8">
-												<%= f.text_field :bid, class: "form-control", placeholder: "ex 1.000" %>
+							<% if user_signed_in? && @gig.user != current_user %>
+								<%= form_for :proposal, url: gig_proposals_path(@gig) do |f| %>
+									<fieldset class="post-resume">
+										<div class="section express-yourself">
+											<h4>Send Proposal</h4>
+											<div class="row form-group">
+												<label class="col-sm-4 label-title">Bid</label>
+												<div class="col-sm-8">
+													<%= f.text_field :bid, class: "form-control", placeholder: "ex 1.000" %>
+												</div>
 											</div>
-										</div>
-										<div class="row form-group additional-information">
-											<label class="col-sm-4 label-title">Description</label>
-											<div class="col-sm-8">
-												<%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+											<div class="row form-group additional-information">
+												<label class="col-sm-4 label-title">Description</label>
+												<div class="col-sm-8">
+													<%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+												</div>
 											</div>
-										</div>
-										<br>
-										<%= submit_tag "Submit Proposal", class: "btn btn-primary" %>
-									</div><!-- postdetails -->
-								</fieldset>
+											<br>
+											<%= submit_tag "Submit Proposal", class: "btn btn-primary" %>
+										</div><!-- postdetails -->
+									</fieldset>
+								<% end %>
+							<% elsif @gig.user == current_user && @gig.open == true %>
+								<h4>You cant bid on your own gig!</h4>
+							<% elsif @gig.open == false %>
+								<h4>This gig is closed</h4>
+							<% else %>
+								<h4> Sign in to make a bid</h4>
+								<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary bookmark" %>
+								<br><br>
 							<% end %>
 
 							<% if @awarded_proposal.present? %>
@@ -192,13 +202,15 @@
 												<div class="panel-body">
 													<%= proposal.description %>
 												</div>
-												<div class="panel-footer">
-													<%= form_for @gig, method: :put do|f| %>
-														<%= f.hidden_field :awarded_proposal, value: proposal.id %>
-														<%= f.hidden_field :open, value: false %>
-														<%= f.submit "Award Proposal" %>
-													<% end %>
-												</div>
+												<% if current_user == @gig.user && @gig.awarded_proposal.blank? %>
+													<div class="panel-footer">
+														<%= form_for @gig, method: :put do|f| %>
+															<%= f.hidden_field :awarded_proposal, value: proposal.id %>
+															<%= f.hidden_field :open, value: false %>
+															<%= f.submit "Award Proposal" %>
+														<% end %>
+													</div>
+												<% end %>
 											</div>
 										<% end %>
 									<% else %>

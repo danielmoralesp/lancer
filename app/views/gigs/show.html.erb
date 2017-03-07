@@ -2,79 +2,29 @@
 		<div class="container">
 			<div class="breadcrumb-section">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="job-list.html">Engineer/Architects</a></li>
-					<li>UI & UX Designer</li>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to @gig.category.name, @gig %></li>
 				</ol><!-- breadcrumb -->
-				<h2 class="title">Creative & Design</h2>
+				<h2 class="title"><%= @gig.category.name %></h2>
 			</div><!-- breadcrumb -->
-
-			<div class="banner-form banner-form-full job-list-form">
-				<form action="#">
-					<!-- category-change -->
-					<div class="dropdown category-dropdown">
-						<a data-toggle="dropdown" href="#"><span class="change-text">Job Category</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu category-change">
-							<li><a href="#">Customer Service</a></li>
-							<li><a href="#">Software Engineer</a></li>
-							<li><a href="#">Program Development</a></li>
-							<li><a href="#">Project Manager</a></li>
-							<li><a href="#">Graphics Designer</a></li>
-						</ul>
-					</div><!-- category-change -->
-
-					<!-- language-dropdown -->
-					<div class="dropdown category-dropdown language-dropdown">
-						<a data-toggle="dropdown" href="#"><span class="change-text">Job Location</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu category-change language-change">
-							<li><a href="#">Location 1</a></li>
-							<li><a href="#">Location 2</a></li>
-							<li><a href="#">Location 3</a></li>
-						</ul>
-					</div><!-- language-dropdown -->
-
-					<input type="text" class="form-control" placeholder="Type your key word">
-					<button type="submit" class="btn btn-primary" value="Search">Search</button>
-				</form>
-			</div><!-- banner-form -->
 
 			<div class="job-details">
 				<div class="section job-ad-item">
 					<div class="item-info">
-						<div class="item-image-box">
-							<div class="item-image">
-								<img src="/assets/job/4.png" alt="Image" class="img-responsive">
-							</div><!-- item-image -->
-						</div>
 
 						<div class="ad-info">
-							<span><span><a href="#" class="title"><%= @gig.name %></a></span> @ <a href="#"> Dropbox Inc</a></span>
+							<span><span><a href="#" class="title"><%= @gig.name %></a></span></span>
 							<div class="ad-meta">
 								<ul>
-									<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @gig.location %></a></li>
-									<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</a></li>
-									<li><i class="fa fa-money" aria-hidden="true"></i><%= @gig.budget %></li>
-									<li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</a></li>
-									<li><i class="fa fa-hourglass-start" aria-hidden="true"></i>Application Deadline : Jan 10, 2017</li>
+									<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @gig.location %></li>
+									<li><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</li>
+									<li><i class="fa fa-money" aria-hidden="true"></i>$<%= @gig.budget %></li>
+									<li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%= @gig.category.name %></li>
+									<li><i class="fa fa-calendar" aria-hidden="true"></i>Hace <%= time_ago_in_words(@gig.created_at) %></li>
 								</ul>
 							</div><!-- ad-meta -->
 						</div><!-- ad-info -->
 					</div><!-- item-info -->
-					<div class="social-media">
-						<div class="button">
-							<a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
-							<a href="#" class="btn btn-primary bookmark"><i class="fa fa-bookmark-o" aria-hidden="true"></i>Bookmark</a>
-						</div>
-						<ul class="share-social">
-							<li>Share this ad</li>
-							<li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
 				</div><!-- job-ad-item -->
 
 				<div class="job-details-info">
@@ -82,31 +32,14 @@
 						<div class="col-sm-8">
 							<div class="section job-description">
 								<div class="description-info">
-									<h1>Description</h1>
+									<h1>Descripción</h1>
 									<p><span><%= @gig.description %></p>
 								</div>
 								<div class="responsibilities">
-									<h1>Skills:</h1>
+									<h1>Habilidades Requeridas</h1>
 									<% @gig.skills.each do |skill| %>
 										<li><%= skill.name %></li>
 									<% end %>
-								</div>
-								<div class="responsibilities">
-									<h1>Key Responsibilities:</h1>
-									<p>-Execute all visual design stages of website design from concept to final hand-off to development-Create print advertisements, social media advertisements, client collateral & digital resizes according to Client demands With direction of the Creative team, input into new design ideas for client branding-Update & keep all agency collateral materials, including keeping records of Client's logos, fonts, images, etc.  </p>
-								</div>
-								<div class="requirements">
-									<h1>Minimum Requirements</h1>
-									<ul>
-										<li>Bachelor's Degree</li>
-										<li>2-5 years of relevant experience ( or equivalent educational experience)</li>
-										<li>Experience developing in Wordpress and other web design platforms</li>
-										<li>HTML, CSS and JavaScript experience a plus</li>
-										<li>In depth knowledge & technical experience of Photoshop, Illustrator, InDesign, Adobe PDF, Keynote, PowerPoint, Microsoft Word & Excel</li>
-										<li>Exceptional eye for design, deep understanding of creativity and ability to recognize fresh approaches to Advertising </li>
-										<li>Must be fluent in Spanish; working written and spoken proficiency</li>
-										<li>**All applicants must be eligible to work in the U.S. without sponsorship</li>
-									</ul>
 								</div>
 							</div>
 
@@ -114,38 +47,38 @@
 								<%= form_for :proposal, url: gig_proposals_path(@gig) do |f| %>
 									<fieldset class="post-resume">
 										<div class="section express-yourself">
-											<h4>Send Proposal</h4>
+											<h4>Enviar Propuesta</h4>
 											<div class="row form-group">
-												<label class="col-sm-4 label-title">Bid</label>
+												<label class="col-sm-4 label-title">Propuesta</label>
 												<div class="col-sm-8">
-													<%= f.text_field :bid, class: "form-control", placeholder: "ex 1.000" %>
+													<%= f.text_field :bid, class: "form-control", placeholder: "ejm: $120.000" %>
 												</div>
 											</div>
 											<div class="row form-group additional-information">
-												<label class="col-sm-4 label-title">Description</label>
+												<label class="col-sm-4 label-title">Descripción</label>
 												<div class="col-sm-8">
-													<%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+													<%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
 												</div>
 											</div>
 											<br>
-											<%= submit_tag "Submit Proposal", class: "btn btn-primary" %>
+											<%= submit_tag "Enviar Propuesta", class: "btn btn-primary" %>
 										</div><!-- postdetails -->
 									</fieldset>
 								<% end %>
 							<% elsif @gig.user == current_user && @gig.open == true %>
-								<h4>You cant bid on your own gig!</h4>
+								<h4>No puedes postularte a una oferta propia!</h4>
 							<% elsif @gig.open == false %>
-								<h4>This gig is closed</h4>
+								<h4>Esta oferta esta cerrada</h4>
 							<% else %>
-								<h4> Sign in to make a bid</h4>
-								<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary bookmark" %>
+								<h4> Entra o Registrate para Postularte!</h4>
+								<%= link_to 'Entrar', new_user_session_path, class: "btn btn-primary bookmark" %>
 								<br><br>
 							<% end %>
 
 							<% if @awarded_proposal.present? %>
 								<div class="section job-description">
 									<div class="responsibilities">
-										<h1>Awarded Proposal:</h1>
+										<h1>Propuesta Ganadora:</h1>
 										<div "panel panel-default">
 											<div class="panel-heading">
 												<div class="row">
@@ -176,7 +109,7 @@
 
 							<div class="section job-description">
 								<div class="responsibilities">
-									<h1>Proposals:</h1>
+									<h1>Propuestas:</h1>
 									<% if @proposals.present? %>
 										<% @proposals.each do |proposal| %>
 											<div "panel panel-default">
@@ -207,7 +140,7 @@
 														<%= form_for @gig, method: :put do|f| %>
 															<%= f.hidden_field :awarded_proposal, value: proposal.id %>
 															<%= f.hidden_field :open, value: false %>
-															<%= f.submit "Award Proposal" %>
+															<%= f.submit "Propuesta Ganadora" %>
 														<% end %>
 													</div>
 												<% end %>
@@ -221,31 +154,23 @@
 
 						<div class="col-sm-4">
 							<div class="section job-short-info">
-								<h1>Short Info</h1>
+								<h1>Información Rapida</h1>
 								<ul>
-									<li><span class="icon"><i class="fa fa-bolt" aria-hidden="true"></i></span>Posted: 1 day ago</li>
-									<li><span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span> Job poster: <a href="#">Lance Ladaga</a></li>
-									<li><span class="icon"><i class="fa fa-industry" aria-hidden="true"></i></span>Industry: <a href="#">Marketing and Advertising</a></li>
-									<li><span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>Experience: <a href="#">Entry level</a></li>
-									<li><span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>Job function: Advertising,Design, Art/Creative</li>
+									<li><span class="icon"><i class="fa fa-bolt" aria-hidden="true"></i></span>Posteado: Hace <%= time_ago_in_words(@gig.created_at) %></li>
+									<li><span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span> Empleador: Lance Ladaga</li>
+									<li><span class="icon"><i class="fa fa-industry" aria-hidden="true"></i></span>Industria: <%= @gig.category.name %></li>
+									<li><span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>Experiencia: No Requerida</li>
 								</ul>
 							</div>
 							<div class="section company-info">
-								<h1>Company Info</h1>
+								<h1>Información de Empresa</h1>
 								<ul>
-									<li>Compnay Name: <a href="#">Dropbox Inc</a></li>
-									<li>Address: London, United Kingdom</li>
-									<li>Compnay SIze:  2k Employee</li>
-									<li>Industry: <a href="#">Technology</a></li>
-									<li>Phone: +1234 567 8910</li>
+									<li>Nombre: <a href="#">Dropbox Inc</a></li>
+									<li>Dirección: London, United Kingdom</li>
+									<li>Industria: <a href="#">Technology</a></li>
+									<li>Teléfono: +1234 567 8910</li>
 									<li>Email: <a href="#">info@dropbox.com</a></li>
 									<li>Website: <a href="#">www.dropbox.com</a></li>
-								</ul>
-								<ul class="share-social">
-									<li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -254,15 +179,3 @@
 			</div><!-- job-details -->
 		</div><!-- container -->
 	</section><!-- job-details-page -->
-
-	<section id="something-sell" class="clearfix parallax-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<h2 class="title">Add your resume and let your next job find you.</h2>
-					<h4>Post your Resume for free on <a href="#">Jobs.com</a></h4>
-					<a href="post-resume.html" class="btn btn-primary">Add Your Resume</a>
-				</div>
-			</div><!-- row -->
-		</div><!-- contaioner -->
-	</section><!-- something-sell -->

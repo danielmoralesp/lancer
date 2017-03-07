@@ -2210,7 +2210,7 @@ input:-moz-placeholder {
 
 .job-ad-item .item-image-box,
 .job-ad-item .ad-info {
-	float: left;
+	float: ;
 }
 
 .job-ad-item .ad-info {
@@ -2410,7 +2410,7 @@ input:-moz-placeholder {
 
 .social-media {
 	overflow: hidden;
-	margin-left: 120px;
+	margin-left: 20px;
 }
 
 .social-media .button {

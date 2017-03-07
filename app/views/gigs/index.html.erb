@@ -1,15 +1,15 @@
 <div class="banner-job">
   <div class="banner-overlay"></div>
   <div class="container text-center">
-    <h1 class="title">The Easiest Way to Get Your New Job</h1>
-    <h3>We offer <%= @gigs.total_count %> jobs vacation right now but only <%= @users.count %> users</h3>
+    <h1 class="title">Trabaja por Horas en Eventos</h1>
+    <h3>de Entretenimiento y Logísticos, Deportivos, de Protocolo y Mercadeo BTL.</h3>
     <div class="banner-form">
       <%= form_tag search_gigs_path, method: :get do |f|  %>
-        <%= text_field_tag :search, nil, class: "form-control", placeholder: "Type your key word" %>
-        <%= button_tag "Search", class: "btn btn-primary" %>
+        <%= text_field_tag :search, nil, class: "form-control", placeholder: "ejm: Protocolo, Mercadeo BTL, Deportivos, Entretenimiento" %>
+        <%= button_tag "Buscar", class: "btn btn-primary" %>
       <% end %>
     </div><!-- banner-form -->
-
+    <h3>Ofrecemos <%= @gigs.total_count %> vacantes para solo <%= @users.count %> usuarios</h3>
     <ul class="banner-socail list-inline">
       <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
       <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -19,4 +19,45 @@
   </div><!-- container -->
 </div><!-- banner-section -->
 
-<%= render 'gigs/gig_listings' %>
+<div class="page">
+  <div class="container">
+    <%= render 'gigs/gig_listings' %>
+    <div class="section cta cta-two text-center">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="single-cta">
+            <div class="cta-icon icon-jobs">
+              <img src="/assets/icon/31.png" alt="Icon" class="img-responsive">
+            </div><!-- cta-icon -->
+            <h3><%= @gigs.total_count %></h3>
+            <h4>Vacantes en Total</h4>
+            <p>de Entretenimiento y Logística, Deportivos, de Protocolo y Mercadeo BTL.</p>
+          </div>
+        </div><!-- single-cta -->
+
+        <div class="col-sm-4">
+          <div class="single-cta">
+            <!-- cta-icon -->
+            <div class="cta-icon icon-company">
+              <img src="/assets/icon/32.png" alt="Icon" class="img-responsive">
+            </div><!-- cta-icon -->
+            <h3>43</h3>
+            <h4>Compañias en Total</h4>
+            <p>Inscritas en nuestros servicio, que ofertan constantemente</p>
+          </div>
+        </div><!-- single-cta -->
+
+        <div class="col-sm-4">
+          <div class="single-cta">
+            <div class="cta-icon icon-candidate">
+              <img src="/assets/icon/33.png" alt="Icon" class="img-responsive">
+            </div><!-- cta-icon -->
+            <h3><%= @users.count %></h3>
+            <h4>Cantidatos en Total</h4>
+            <p>Disponibles para trabajar por Horas en las vacantes solicitadas</p>
+          </div>
+        </div><!-- single-cta -->
+      </div><!-- row -->
+    </div><!-- cta -->
+  </div><!-- conainer -->
+</div><!-- page -->

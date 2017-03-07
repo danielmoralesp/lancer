@@ -3,10 +3,10 @@
     <div class="breadcrumb-section">
       <!-- breadcrumb -->
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>Job Post </li>
+        <li><%= link_to "Home", root_path %></li>
+        <li>Postear Oferta </li>
       </ol><!-- breadcrumb -->
-      <h2 class="title">Post Your Job</h2>
+      <h2 class="title">Postea tu Oferta</h2>
     </div><!-- banner -->
 
     <% if @gig.errors.any? %>
@@ -26,44 +26,44 @@
         <%= form_for @gig do |f| %>
           <fieldset>
             <div class="section postdetails">
-              <h4>Post Your Gig<span class="pull-right">* Mandatory Fields</span></h4>
+              <h4>Postea tu Oferta<span class="pull-right">* Campos Necesarios</span></h4>
                 <div class="row form-group">
-                  <label class="col-sm-3 label-title">Name of Your Gig<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Nombre de la Oferta<span class="required">*</span></label>
                   <div class="col-sm-9">
-                    <%= f.text_field :name, :class => 'form-control', placeholder: "ex, Jhon Doe" %>
+                    <%= f.text_field :name, :class => 'form-control', placeholder: "ejm: Trabajo por 3 Horas como Modelo Protocolo BTL" %>
                   </div>
                 </div>
                 <div class="row form-group">
-                  <label class="col-sm-3 label-title">Budget<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Presupuesto<span class="required">*</span></label>
                   <div class="col-sm-9">
-                    <%= f.text_field :budget, :class => 'form-control', placeholder: "ex, $1.000" %>
+                    <%= f.text_field :budget, :class => 'form-control', placeholder: "ejm: $120.000 * Hora" %>
                   </div>
                 </div>
                 <div class="row form-group">
-                  <label class="col-sm-3 label-title">Category<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Categoria<span class="required">*</span></label>
                   <div class="col-sm-9">
                     <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, :class => 'form-control' %>
                   </div>
                 </div>
                 <div class="row form-group">
-                  <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Ubicación<span class="required">*</span></label>
                   <div class="col-sm-9">
-                    <%= f.text_field :location, :class => 'form-control', placeholder: "ex, (Denver, San Francisco)" %>
+                    <%= f.text_field :location, :class => 'form-control', placeholder: "ejm: Bogota, Medellin" %>
                   </div>
                 </div>
                 <div class="row form-group item-description">
-                  <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Descripción (Más de 250 caracteres)<span class="required">*</span></label>
                   <div class="col-sm-9">
-                    <%= f.text_area :description, :class => 'form-control', placeholder: "Write few lines about your jobs", rows: "8" %>
+                    <%= f.text_area :description, :class => 'form-control', placeholder: "Escribe mas de 250 caracteres con la descripcioón del trabajo", rows: "8" %>
                   </div>
                 </div>
                 <div class="row form-group item-description">
-                  <label class="col-sm-3 label-title">List of Skills required for the gig<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Lista de Habilidades Requeridas (Separadas por coma)<span class="required">*</span></label>
                   <div class="col-sm-9">
-                    <%= f.text_area :skill_list, :class => 'form-control', placeholder: "Separate skills with a coma", rows: "3" %>
+                    <%= f.text_area :skill_list, :class => 'form-control', placeholder: "ejm: Modelo, Logistica, Servicial, etc.", rows: "3" %>
                   </div>
                 </div> <br>
-                <%= f.submit "Post Your Gig", :class => "btn btn-primary" %>
+                <%= f.submit "Postear Oferta", :class => "btn btn-primary" %>
             </div>
           </fieldset>
         <% end %>
@@ -71,8 +71,8 @@
         <!-- quick-rules -->
         <div class="col-md-4">
           <div class="section quick-rules">
-            <h4>Quick rules</h4>
-            <p class="lead">Posting an ad on <a href="#">jobs.com</a> is free! However, all ads must follow our rules:</p>
+            <h4>Reglas Básicas</h4>
+            <p class="lead">Postear una oferta es gratis! sin embargo, aqui tenemos algunas reglas simples:</p>
 
             <ul>
               <li>Make sure you post in the correct category.</li>

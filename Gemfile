@@ -32,6 +32,8 @@ gem 'faker', group: :development
 gem 'kaminari'
 #geocoder
 gem 'geocoder'
+#i18n
+gem 'rails-i18n', '~> 4.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

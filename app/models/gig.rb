@@ -9,6 +9,10 @@ class Gig < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
+  validates :name, :budget, :location, :description, :skill_list, presence: true
+  validates :budget, numericality: { only_integer: true }
+  validates :description, length: { minimum: 250 }
+
   def self.search(params)
     if params[:category].present?
       gigs = Gig.where(category_id: params[:category].to_i)

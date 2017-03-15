@@ -43,7 +43,7 @@
 								</div>
 							</div>
 
-							<% if user_signed_in? && @gig.user != current_user %>
+							<% if user_signed_in? && @gig.user != current_user && current_user.staff? %>
 								<%= form_for :proposal, url: gig_proposals_path(@gig) do |f| %>
 									<fieldset class="post-resume">
 										<div class="section express-yourself">

@@ -1,5 +1,6 @@
 class GigsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search, :show]
+  before_action :is_admin?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(10)
@@ -70,6 +71,13 @@ class GigsController < ApplicationController
   private
     def gig_params
       params.require(:gig).permit(:name, :description, :budget, :location, :open, :category_id, :skill_list, :awarded_proposal)
+    end
+
+    def is_admin?
+      unless current_user.admin?
+        flash[:notice] = 'No tienes permisos para postear'
+        redirect_to root_path
+      end
     end
 
 end

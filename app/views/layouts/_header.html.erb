@@ -23,7 +23,7 @@
             </li>
             <li><a href="">Como Funciona</a></li>
             <li><a href="">Sobre Nosotros</a></li>
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user.admin? %>
               <li class="<%= active_class(mygigs_path) %>"><%= link_to "Mis Ofertas", mygigs_path %></li>
             <% end %>
           </ul>
@@ -42,8 +42,9 @@
             <li><%= link_to "Registrarme", new_user_registration_path %></li>
           <% end %>
         </ul><!-- sign-in -->
-
+        <% if user_signed_in? && current_user.admin? %>
         <%= link_to "Postear Oferta", new_gig_path, class: 'btn' %>
+        <% end %>
       </div>
       <!-- nav-right -->
     </div><!-- container -->

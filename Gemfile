@@ -34,6 +34,8 @@ gem 'kaminari'
 gem 'geocoder'
 #i18n
 gem 'rails-i18n', '~> 4.0.0'
+#hirb
+gem 'hirb', '~> 0.7.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

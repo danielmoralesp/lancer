@@ -69,9 +69,11 @@
                         </ul>
                       </div><!-- ad-meta -->
                     </div><!-- ad-info -->
-                    <div class="button">
-                      <%= link_to "Aplicar", gig, class: "btn btn-primary"%>
-    								</div>
+                    <% if user_signed_in? && current_user.staff? %>
+                      <div class="button">
+                        <%= link_to "Aplicar", gig, class: "btn btn-primary"%>
+      								</div>
+                    <% end %>
                   </div><!-- item-info -->
                 </div><!-- job-ad-item -->
                 <% end %>

@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: gigs
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  description      :text
+#  budget           :integer
+#  location         :string
+#  open             :boolean          default("t")
+#  awarded_proposal :integer
+#  latitude         :float
+#  longitude        :float
+#  created_at       :datetime
+#  updated_at       :datetime
+#  category_id      :integer
+#  user_id          :integer
+#
+
 class Gig < ActiveRecord::Base
   has_many :proposals
   belongs_to :category

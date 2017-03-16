@@ -47,7 +47,11 @@
 									<li><i class="fa fa-money" aria-hidden="true"></i>$<%= link_to gig.budget, gig %></li>
 									<li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%= link_to gig.category.name, gig %></li>
 									<li><i class="fa fa-calendar" aria-hidden="true"></i>Hace <%= link_to time_ago_in_words(gig.created_at), gig %></li>
-									<div class="pull-right">
+								</ul>
+							</div></br></br>
+							<div class="ad-meta">
+								<ul>
+									<div>
 										<% if gig.open %>
 	                    <li><a href="#"><i class="fa fa-folder-open-o" aria-hidden="true"></i>Abierto</a></li>
 	                  <% else %>

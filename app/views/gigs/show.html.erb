@@ -118,6 +118,7 @@
 								</div>
 							<% end %>
 
+							<% if user_signed_in? && @gig.user == current_user && current_user.admin? %>
 							<div class="section job-description">
 								<div class="responsibilities">
 									<h1>Propuestas:</h1>
@@ -136,7 +137,7 @@
 																<%= number_to_currency(proposal.bid, precision:0) %>
 															</h3>
 														</div>
-														<% if proposal.document.exists? %>
+														<% if proposal.document.exists?%>
 														  <div class="panel-title">
 																<%= link_to "Download", proposal.document.url(:name, false), class: "btn btn-sm btn-default", target: "_blank" %>
 														  </div>
@@ -166,6 +167,7 @@
 									<% end %>
 								</div>
 							</div>
+							<% end %>
 						</div>
 
 						<div class="col-sm-4">

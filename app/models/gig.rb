@@ -18,6 +18,7 @@
 #  time_off_id      :integer
 #  experience       :text
 #  responsabilities :text
+#  offer            :integer
 #
 
 class Gig < ActiveRecord::Base

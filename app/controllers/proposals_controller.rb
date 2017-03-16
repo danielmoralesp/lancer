@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
 
   private
     def proposal_params
-      params.require(:proposal).permit(:bid, :description)
+      params.require(:proposal).permit(:bid, :description, :document)
     end
 
     def is_staff?

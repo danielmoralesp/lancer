@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316002316) do
+ActiveRecord::Schema.define(version: 20170316011637) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "gig_id"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20170316002316) do
     t.datetime "updated_at"
     t.integer  "gig_id"
     t.integer  "user_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "proposals", ["gig_id"], name: "index_proposals_on_gig_id"

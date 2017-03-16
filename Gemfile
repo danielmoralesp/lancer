@@ -36,6 +36,8 @@ gem 'geocoder'
 gem 'rails-i18n', '~> 4.0.0'
 #hirb
 gem 'hirb', '~> 0.7.3'
+#paperclip
+gem "paperclip", "~> 4.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -68,6 +68,10 @@ class GigsController < ApplicationController
     @gigs = Gig.where(user_id: current_user).order(created_at: :desc)
   end
 
+  def download_file
+   redirect_to paperclip_attachment.file.url
+  end
+
   private
     def gig_params
       params.require(:gig).permit(:name, :description, :budget, :location, :open, :category_id, :skill_list, :awarded_proposal, :time_off_id, :experience, :responsabilities, :offer)

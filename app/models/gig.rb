@@ -15,12 +15,16 @@
 #  updated_at       :datetime
 #  category_id      :integer
 #  user_id          :integer
+#  time_off_id      :integer
+#  experience       :text
+#  responsabilities :text
 #
 
 class Gig < ActiveRecord::Base
   has_many :proposals
   belongs_to :category
   belongs_to :user
+  belongs_to :time_off
 
   has_many :abilities
   has_many :skills, through: :abilities
@@ -28,7 +32,7 @@ class Gig < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
-  validates :name, :budget, :location, :description, :skill_list, presence: true
+  validates :name, :budget, :location, :description, :skill_list, :offer, presence: true
   validates :budget, numericality: { only_integer: true }
   validates :description, length: { minimum: 250 }
 

@@ -34,7 +34,19 @@
                   </div>
                 </div>
                 <div class="row form-group">
-                  <label class="col-sm-3 label-title">Presupuesto<span class="required">*</span></label>
+                  <label class="col-sm-3 label-title">Tiempo de Oferta (Ejm: 12)<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.text_field :offer, :class => 'form-control', placeholder: "ejm: 12" %>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Lapso de Tiempo de Oferta (Ejm: days)<span class="required">*</span></label>
+                  <div class="col-sm-9">
+                    <%= f.select :time_off_id, options_from_collection_for_select(TimeOff.all, :id, :name), {}, :class => 'form-control' %>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <label class="col-sm-3 label-title">Oferta Monetaria<span class="required">*</span></label>
                   <div class="col-sm-9">
                     <%= f.text_field :budget, :class => 'form-control', placeholder: "ejm: $120.000 * Hora" %>
                   </div>
@@ -49,6 +61,18 @@
                   <label class="col-sm-3 label-title">Ubicación<span class="required">*</span></label>
                   <div class="col-sm-9">
                     <%= f.text_field :location, :class => 'form-control', placeholder: "ejm: Bogota, Medellin" %>
+                  </div>
+                </div>
+                <div class="row form-group item-description">
+                  <label class="col-sm-3 label-title">Experiencia Requerida</label>
+                  <div class="col-sm-9">
+                    <%= f.text_area :experience, :class => 'form-control', placeholder: "Ejm: Experiencia en ...", rows: "8" %>
+                  </div>
+                </div>
+                <div class="row form-group item-description">
+                  <label class="col-sm-3 label-title">Responsabilidades</label>
+                  <div class="col-sm-9">
+                    <%= f.text_area :responsabilities, :class => 'form-control', placeholder: "Ejm: Su responsabilidad sera ...", rows: "8" %>
                   </div>
                 </div>
                 <div class="row form-group item-description">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315213137) do
+ActiveRecord::Schema.define(version: 20170316002316) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "gig_id"
@@ -38,9 +38,14 @@ ActiveRecord::Schema.define(version: 20170315213137) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.integer  "user_id"
+    t.integer  "time_off_id"
+    t.text     "experience"
+    t.text     "responsabilities"
+    t.integer  "offer"
   end
 
   add_index "gigs", ["category_id"], name: "index_gigs_on_category_id"
+  add_index "gigs", ["time_off_id"], name: "index_gigs_on_time_off_id"
   add_index "gigs", ["user_id"], name: "index_gigs_on_user_id"
 
   create_table "proposals", force: :cascade do |t|
@@ -57,6 +62,12 @@ ActiveRecord::Schema.define(version: 20170315213137) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "time_offs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|

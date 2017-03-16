@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: time_offs
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  name       :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hours: 1
+  days: 1
+  week: 1
+  month: 1
+  experience: MyText
+  responsabilities: MyText
+
+two:
+  hours: 1
+  days: 1
+  week: 1
+  month: 1
+  experience: MyText
+  responsabilities: MyText

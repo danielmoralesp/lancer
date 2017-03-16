@@ -17,7 +17,7 @@
 							<div class="ad-meta">
 								<ul>
 									<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @gig.location %></li>
-									<li><i class="fa fa-clock-o" aria-hidden="true"></i>Full Time</li>
+									<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= @gig.offer %> <%= @gig.time_off.name %>s</li>
 									<li><i class="fa fa-money" aria-hidden="true"></i>$<%= @gig.budget %></li>
 									<li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%= @gig.category.name %></li>
 									<li><i class="fa fa-calendar" aria-hidden="true"></i>Hace <%= time_ago_in_words(@gig.created_at) %></li>
@@ -32,8 +32,16 @@
 						<div class="col-sm-8">
 							<div class="section job-description">
 								<div class="description-info">
-									<h1>Descripción</h1>
+									<h1>Descripción de la Oferta</h1>
 									<p><span><%= @gig.description %></p>
+								</div>
+								<div class="description-info">
+									<h1>Experiencia Requerida</h1>
+									<p><span><%= @gig.experience %></p>
+								</div>
+								<div class="description-info">
+									<h1>Responsabilidades Requeridas</h1>
+									<p><span><%= @gig.responsabilities %></p>
 								</div>
 								<div class="responsibilities">
 									<h1>Habilidades Requeridas</h1>

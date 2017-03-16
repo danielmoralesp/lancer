@@ -70,7 +70,7 @@ class GigsController < ApplicationController
 
   private
     def gig_params
-      params.require(:gig).permit(:name, :description, :budget, :location, :open, :category_id, :skill_list, :awarded_proposal)
+      params.require(:gig).permit(:name, :description, :budget, :location, :open, :category_id, :skill_list, :awarded_proposal, :time_off_id, :experience, :responsabilities, :offer)
     end
 
     def is_admin?
